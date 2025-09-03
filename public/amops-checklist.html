@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AM Ops Checklist (Static)</title>
+  <meta name="description" content="Static AM Ops checklist with flat scoring (Yes=1, No=0, NA excluded)">
+  <style>
+    :root{color-scheme: light;}
+    body{font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji"; margin:0; background:#f6f7f9; color:#111827}
+    .container{max-width:1000px; margin:24px auto; padding:0 16px}
+    .card{background:#fff; border:1px solid #e5e7eb; border-radius:16px; padding:16px}
+    .title{font-weight:700; font-size:22px; margin:0 0 8px}
+    .muted{color:#6b7280}
+    .section{border-radius:14px; border:1px solid #e5e7eb; background:#fcfdff; margin:16px 0; padding:12px}
+    .section h2{margin:0 0 8px; font-size:18px}
+    table{width:100%; border-collapse:collapse}
+    th, td{border-top:1px solid #e5e7eb; padding:10px; vertical-align:top}
+    thead th{background:#f3f4f6; text-align:left; font-size:12px; letter-spacing:.02em; text-transform:uppercase}
+    .pill{display:inline-block; padding:4px 8px; border-radius:999px; font-size:12px; background:#eef2ff}
+    .row:hover{background:#fafafa}
+    .actions{display:flex; gap:8px; margin-top:16px}
+    button{border-radius:10px; border:1px solid #e5e7eb; background:#111827; color:#fff; padding:10px 14px; font-weight:600; cursor:pointer}
+    button.secondary{background:#fff; color:#111827}
+    .score{display:flex; gap:12px; flex-wrap:wrap}
+    .stat{background:#f3f4f6; border:1px solid #e5e7eb; border-radius:12px; padding:10px 12px}
+    .stat .label{font-size:12px; color:#6b7280}
+    .stat .value{font-weight:700; font-size:18px}
+    .footer{margin-top:24px; font-size:12px; color:#6b7280}
+    .na{color:#6b7280}
+    .hstack{display:flex; gap:8px; align-items:center}
+    .controls{display:flex; gap:10px}
+    @media (max-width: 640px){ th:nth-child(2), td:nth-child(2){display:block; width:100%} th:first-child, td:first-child{display:block; width:100%} }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <h1 class="title">AM Ops Checklist</h1>
+      <div class="muted">Flat scoring: Yes = 1, No = 0, N/A not applicable (excluded from max). No TSA numeric scoring.</div>
+
+      <div class="hstack" style="margin-top:12px">
+        <label class="hstack">
+          <span class="muted" style="width:120px">Auditor</span>
+          <input id="auditor" placeholder="Name" style="border:1px solid #e5e7eb; border-radius:10px; padding:8px 10px" />
+        </label>
+        <label class="hstack">
+          <span class="muted" style="width:120px">Store Name</span>
+          <input id="storeName" placeholder="Store" style="border:1px solid #e5e7eb; border-radius:10px; padding:8px 10px" />
+        </label>
+        <label class="hstack">
+          <span class="muted" style="width:120px">Store ID</span>
+          <input id="storeId" placeholder="ID" style="border:1px solid #e5e7eb; border-radius:10px; padding:8px 10px" />
+        </label>
+      </div>
+
+      <div id="scorebar" class="score" style="margin-top:12px">
+        <div class="stat"><div class="label">Score</div><div id="scoreVal" class="value">0 / 0</div></div>
+        <div class="stat"><div class="label">Percentage</div><div id="pctVal" class="value">0%</div></div>
+      </div>
+
+      <div id="root"></div>
+
+      <div class="actions">
+        <button id="compute">Compute Score</button>
+        <button id="reset" class="secondary">Reset</button>
+      </div>
+
+      <div class="footer">Answers autosave in this browser. This page is fully static.</div>
+    </div>
+  </div>
+
+  <script>
+    // Data: sections and questions (updated per request; flat weights)
+    const SECTIONS = [
+      { id:'CG', title:'Cheerful Greeting', items:[
+        {id:'CG_1', q:'Is the store front area clean and maintained?'},
+        {id:'CG_2', q:'Is the signage clean and are all lights functioning?'},
+        {id:'CG_3', q:'Are the glass and doors smudge-free?'},
+        {id:'CG_4', q:'Do promotional displays reflect current offers?'},
+        {id:'CG_5', q:'Are POS tent cards as per the latest communication?'},
+        {id:'CG_6', q:'Are menu boards/DMB as per the latest communication?'},
+        {id:'CG_7', q:'Does the café have a welcoming environment (music, lighting, AC, aroma)?'},
+        {id:'CG_8', q:'Are washrooms cleaned and the checklist updated?'},
+        {id:'CG_9', q:'Is the FDU counter neat, fully stocked, and set as per the planogram?'},
+        {id:'CG_10', q:'Does the merch rack follow VM guidelines and attract attention?'},
+        {id:'CG_11', q:'Is staff grooming (uniform, jewellery, hair and makeup) as per standards?'},
+        {id:'CG_12', q:'Are all seating, furniture, and stations tidy and organized?'},
+        {id:'CG_13', q:'Is the engine area clean and ready for operations?'}
+      ]},
+      { id:'OTA', title:'Order Taking Assistance', items:[
+        {id:'OTA_1', q:'Is suggestive selling happening at the POS?'},
+        {id:'OTA_2', q:'Is the POS partner updated on the latest promos and item availability?'},
+        {id:'OTA_3', q:'Has order-taking time been recorded for 5 customers?'},
+        {id:'OTA_4', q:'Is there sufficient cash and change at the POS?'},
+        {id:'OTA_5', q:'Are valid licenses displayed and expiries checked (medical reports)?'},
+        {id:'OTA_6', q:'Are cash audits completed and verified with the logbook?'},
+        {id:'OTA_7', q:'Are daily banking reports tallied?'},
+        {id:'OTA_8', q:'Has CPI been reviewed through the FAME pilot?'},
+        {id:'OTA_9', q:'Are Swiggy/Zomato metrics (RDC, MFR, visibility) reviewed, and are Food Lock on LS and stock control on UrbanPiper managed per stock availability/opening inventory?'},
+        {id:'OTA_10', q:'Are all food and drinks served as per SOP?'},
+        {id:'OTA_11', q:'Are food orders placed based on the 4-week sales trend?'}
+      ]},
+      { id:'FAS', title:'Friendly & Accurate Service', items:[
+        {id:'FAS_1', q:'Is equipment cleaned and maintained?'},
+        {id:'FAS_2', q:'Are temperature checks done with the Therma Pen and logs updated?'},
+        {id:'FAS_3', q:'Is documentation (GRN, RSTN, STN & TO) completed?'},
+        {id:'FAS_4', q:'Is fast-moving SKU availability checked and validated with LS?'},
+        {id:'FAS_5', q:'Is the thawing chart validated against actual thawing?'},
+        {id:'FAS_6', q:'Are deployment roles clear, with coaching and appreciation done by the MOD?'},
+        {id:'FAS_7', q:'Are there no broken/unused tools stored in the store?'},
+        {id:'FAS_8', q:'Is garbage segregated properly (wet/dry)?'},
+        {id:'FAS_9', q:'Are LTO products served as per standards?'},
+        {id:'FAS_10', q:'Is the coffee and food dial-in process followed?'},
+        {id:'FAS_11', q:'Are R.O.A.S.T. and app orders executed accurately?'},
+        {id:'FAS_12', q:'Have 5 order service times been validated?'},
+        {id:'FAS_13', q:'Have open maintenance-related points been reviewed?'}
+      ]},
+      { id:'FWS', title:'Feedback with Solution', items:[
+        {id:'FWS_1', q:'Has COGS been reviewed, with actions in place per last month’s P&L feedback?'},
+        {id:'FWS_2', q:'Have BSC targets vs achievements been reviewed?'},
+        {id:'FWS_3', q:'Has people budget vs actuals (labour cost/bench planning) been reviewed?'},
+        {id:'FWS_4', q:'Has variance in stock (physical vs system) been verified?'},
+        {id:'FWS_5', q:'Have the top 10 wastage items been reviewed?'},
+        {id:'FWS_6', q:'Have store utilities (units, chemical use) been reviewed?'},
+        {id:'FWS_7', q:'Have shift targets, briefings, and goal tracking been conducted?'},
+        {id:'FWS_8', q:'Have new staff training and bench plans been reviewed?'},
+        {id:'FWS_9', q:'Have Training and QA audits been reviewed?'},
+        {id:'FWS_10', q:'Has the duty roster (off/coff, ELCL, tenure) been checked and attendance ensured as per ZingHR?'},
+        {id:'FWS_11', q:'Have temperature and thawing logs been validated?'},
+        {id:'FWS_12', q:'Have audit and data findings been cross-checked with store observations?'},
+        {id:'FWS_13', q:'Is the pest control layout updated?'}
+      ]},
+      { id:'ENJ', title:'Enjoyable Experience', items:[
+        {id:'ENJ_1', q:'Have 2 new and 2 repeat customers been engaged, with feedback documented?'},
+        {id:'ENJ_2', q:'Are seating and stations adjusted as per customer requirements?'},
+        {id:'ENJ_3', q:'Is the team proactively assisting customers?'},
+        {id:'ENJ_4', q:'Is CCTV checked to monitor customer service during peak hours?'},
+        {id:'ENJ_5', q:'Is CCTV backup (minimum 60 days) in place and are black spots checked?'},
+        {id:'ENJ_6', q:'Is opening/closing footage reviewed for correct practices?'},
+        {id:'ENJ_7', q:'Are there no personal items/clutter in guest areas, with belongings kept in lockers/designated places?'}
+      ]},
+      { id:'EX', title:'Enthusiastic Exit', items:[
+        {id:'EX_1', q:'Are there no unresolved issues at exits?'},
+        {id:'EX_2', q:'Is the final interaction cheerful and courteous?'},
+        {id:'EX_3', q:'Has a consolidated action plan been created with the Store Manager?'},
+        {id:'EX_4', q:'Have top performers been recognized?'},
+        {id:'EX_5', q:'Have wins been celebrated and improvement areas communicated?'},
+        {id:'EX_6', q:'Has the team been motivated for ongoing improvement?'}
+      ]}
+    ];
+
+    const LS_KEY = 'amops-static-answers-v1';
+    const $root = document.getElementById('root');
+
+    function loadState(){ try { return JSON.parse(localStorage.getItem(LS_KEY) || '{}'); } catch { return {}; } }
+    function saveState(s){ try { localStorage.setItem(LS_KEY, JSON.stringify(s)); } catch {} }
+
+    const state = loadState();
+
+    function render(){
+      $root.innerHTML = '';
+      SECTIONS.forEach(sec => {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'section';
+        const h = document.createElement('h2');
+        h.textContent = sec.title;
+        wrapper.appendChild(h);
+
+        const table = document.createElement('table');
+        table.innerHTML = `
+          <thead>
+            <tr>
+              <th style="width:60%">Question</th>
+              <th style="width:40%">Response</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        `;
+        const tbody = table.querySelector('tbody');
+
+        sec.items.forEach(it => {
+          const key = `${sec.id}_${it.id}`;
+          const tr = document.createElement('tr');
+          tr.className = 'row';
+          const tdQ = document.createElement('td');
+          tdQ.textContent = it.q;
+          const tdA = document.createElement('td');
+
+          const group = document.createElement('div');
+          group.className = 'controls';
+
+          ['yes','no','na'].forEach(opt => {
+            const id = `${key}_${opt}`;
+            const label = document.createElement('label');
+            label.className = 'hstack';
+            const input = document.createElement('input');
+            input.type = 'radio';
+            input.name = key;
+            input.value = opt;
+            input.id = id;
+            input.checked = state[key] === opt;
+            input.addEventListener('change', () => { state[key] = opt; saveState(state); });
+            const span = document.createElement('span');
+            span.textContent = opt.toUpperCase();
+            if(opt==='na') span.className = 'na';
+            label.appendChild(input);
+            label.appendChild(span);
+            group.appendChild(label);
+          });
+
+          tdA.appendChild(group);
+          tr.appendChild(tdQ);
+          tr.appendChild(tdA);
+          tbody.appendChild(tr);
+        });
+
+        // Section summary line
+        const sum = document.createElement('div');
+        sum.className = 'muted';
+        sum.style.marginTop = '8px';
+        const {s, m} = scoreSection(sec);
+        sum.textContent = `Section score: ${s} / ${m}`;
+
+        wrapper.appendChild(table);
+        wrapper.appendChild(sum);
+        $root.appendChild(wrapper);
+      });
+    }
+
+    function scoreSection(sec){
+      let s=0, m=0;
+      sec.items.forEach(it => {
+        const r = state[`${sec.id}_${it.id}`];
+        if(r==='yes'){ s+=1; m+=1; }
+        else if(r==='no'){ m+=1; }
+        else if(r==='na'){ /* excluded */ }
+      });
+      return { s, m };
+    }
+
+    function scoreAll(){
+      let s=0, m=0;
+      SECTIONS.forEach(sec => { const t = scoreSection(sec); s += t.s; m += t.m; });
+      return { s, m, pct: m ? Math.round((s/m)*100) : 0 };
+    }
+
+    function updateScoreBar(){
+      const { s, m, pct } = scoreAll();
+      document.getElementById('scoreVal').textContent = `${s} / ${m}`;
+      document.getElementById('pctVal').textContent = `${pct}%`;
+    }
+
+    // Hook up actions
+    document.getElementById('compute').addEventListener('click', () => {
+      updateScoreBar();
+      alert(`Score: ${document.getElementById('scoreVal').textContent}\nPercentage: ${document.getElementById('pctVal').textContent}`);
+    });
+    document.getElementById('reset').addEventListener('click', () => {
+      if(!confirm('Clear all answers?')) return;
+      for(const k of Object.keys(state)) delete state[k];
+      saveState(state);
+      render();
+      updateScoreBar();
+    });
+
+    // Initial
+    render();
+    updateScoreBar();
+  </script>
+</body>
+</html>
