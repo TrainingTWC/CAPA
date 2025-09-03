@@ -3,7 +3,7 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
-  base: "/am_capa/", // <<— EXACT repo name with slashes
+  base: "/CAPA/", // <<— EXACT repo name with slashes
   server: {
     proxy: {
       "/ollama": {
