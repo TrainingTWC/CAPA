@@ -12,7 +12,7 @@ export default defineConfig({
         rewrite: (path) => path.replace(/^\/ollama/, ""),
       },
       "/rag": {
-        target: "http://localhost:7070",
+        target: "http://localhost:8787",
         changeOrigin: true,
         // Keep prefix so frontend calls /rag/api/* map to server /api/*
         rewrite: (path) => path.replace(/^\/rag/, ""),
