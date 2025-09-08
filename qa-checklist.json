@@ -1,0 +1,111 @@
+[
+  {
+    "category": "Zero Tolerance",
+    "checkpoints": [
+      { "text": "No expired food products in the café, and all food products are marked with clear date tags (MRD).", "score": 4, "zeroTolerance": true },
+      { "text": "The product shall comply with the secondary shelf life for critical products like chicken, paneer, sauces, chilled, frozen, and composite products.", "score": 4, "zeroTolerance": true },
+      { "text": "All food products should be stored according to the appropriate storage conditions (Frozen, Chilled, and Ambient).", "score": 4, "zeroTolerance": true },
+      { "text": "RO/Mineral water TDS must be between 50 to 150 ± 10 ppm that is being used for processing inside the cafe. If the TDS is not within the acceptable range, the water must not be used for processing.", "score": 4, "zeroTolerance": true },
+      { "text": "Temperature sensitive food items shall not be transferred to the other store in the uncontrolled medium", "score": 4, "zeroTolerance": true },
+      { "text": "No live pest activity, including but not limited to rodents, rats, cockroaches, and spiders was seen inside the café.", "score": 4, "zeroTolerance": true }
+    ]
+  },
+  {
+    "category": "Store",
+    "checkpoints": [
+      { "text": "Portafilter is cleaned and is in good condition", "score": 2 },
+      { "text": "All small wares (scoops, knives spatulas, tongs) must be in good working condition, without cracks or breakages, and are clean.", "score": 2 },
+      { "text": "UTF Holder, Jackets, Pouches & UTF Filling nozzle are stored off the floor and no dust accumulation found.UTF Silver pouch rinsed with RO water before filling", "score": 2 },
+      { "text": "Paper cups, straws, syrups, tissue papers, and sauce bottles are all readily available and neatly placed.", "score": 2 },
+      { "text": "Freezer, FDU and chillers are clean in condition.", "score": 2 },
+      { "text": "Ice cube box / Ice cube machine / scooper are in clean condition and no water inside. (Transfer in / Transfer out of ice cubes should be done in a controlled condition (Shipper box).", "score": 2 },
+      { "text": "The mixer, blender, BPR and jars have been thoroughly cleaned, washed, and stored inverted.", "score": 2 },
+      { "text": "Housekeeping materials are hung separately and away from the food preparation area.", "score": 2 },
+      { "text": "Floor mat cleaned adequately and no accumulation of dirt", "score": 2 },
+      { "text": "Bar mat cleaned adequately and no accumulation of beverage", "score": 2 },
+      { "text": "The carry bag is clean and in good shape with no traces of spillage.", "score": 2 },
+      { "text": "RO machine, water storage tank, and RO pipelines are maintained clean and all in good working order.", "score": 2 },
+      { "text": "Foods & Non-food materials stored separately.", "score": 2 },
+      { "text": "The temperature of the FDU must be verified and must be within the range of 0-5 degrees Celsius.", "score": 2 },
+      { "text": "All in-process food items held in containers and squeeze bottles are kept clean and have proper visible MRD tags in accordance with the shelf-life SOP.", "score": 2 },
+      { "text": "Food product segregation between veg,  non-veg & raw, cooked products must be maintained during all stages including storage and handling.", "score": 2 },
+      { "text": "Expired, Rejected, and Dumped items are clearly labelled as 'DO NOT USE' or 'EXPIRED PRODUCTS' and kept separate to avoid cross contamination.", "score": 2 },
+      { "text": "No carton boxes in the production area except milk boxes. Carton boxes should not be used for keeping other materials or tools ( Microfiber cloths, documents, cloths, damaged tools, etc.)", "score": 2 },
+      { "text": "Food waste and other wastages are removed daily from food handling areas to avoid accumulation.", "score": 2 },
+      { "text": "Partner is well groomed (Cap, T-shirt, Apron, Name Badge, Black Trouser)", "score": 2 },
+      { "text": "Personal Hygiene of the store staffs - with Proper Haircut, Nail trimmed, clean shave/trimmed and without skin infections, wounds, Fever / cold and unwanted jewellery.", "score": 2 },
+      { "text": "Hand washing procedure are followed all the time. Check for hand sanitizer usage & awareness among the store staff", "score": 2 },
+      { "text": "Visitors are checked for following basic safety measures(caps, gloves, etc ) before entering the processing area and should wash their hand.", "score": 2 },
+      { "text": "Personal Belongings (Handbags, tiffins, uniform etc.) are well arranged and kept on separate racks or away from food/packaging storage items", "score": 2 },
+      { "text": "Are gloves used during handling of food and changed after every use", "score": 2 },
+      { "text": "First aid kit available with all the required medicine. No expired medicines", "score": 2 },
+      { "text": "No Unauthorized visitor (friend, relative, or vendor) entry.", "score": 2 },
+      { "text": "All new recipes and shelf-life charts are easily available and being followed.", "score": 2 },
+      { "text": "The FMCG/ Impulse range of products are clean. Check for FSSAI compliance (MFD.Date, Best Before, Batch No., MRP) on label with product integrity. FEFO Maintained.", "score": 2 },
+      { "text": "All ingredients / Products are received from approved vendors. No local purchasing.", "score": 2 },
+      { "text": "Mention the two beverages are cross-verified with BRM.", "score": 2 },
+      { "text": "Weight of any two products, appearance and filling is cross verified with the same given in FRM/food tag", "score": 2 },
+      { "text": "No products are repackaged, closed, or wrapped in insulation tapes, rubber bands, or stapler pins.", "score": 2 },
+      { "text": "Measuring tools available, clean and being used for food preparation & filling (Measuring jars, Weighing balance, Filling nozzles etc.)", "score": 2 },
+      { "text": "Packaging and wrapping material coming in contact with food is clean and of food grade quality", "score": 2 },
+      { "text": "All sensory aspects of expresso, taste, crema texture, temperature, and dispensing weight are evaluated as part of the espresso tasting.", "score": 2 },
+      { "text": "No pest infestation or activity was observed in the store and surrounding. Check the evidence of effective treatment and schedule provided by the service provider", "score": 2 },
+      { "text": "MSDS available for all the pest control chemicals and filed for the ready reference", "score": 2 },
+      { "text": "The pest control layout is available in the store, and all rodent traps and fly catchers are positioned in accordance with the defined pest control layout.", "score": 2 },
+      { "text": "Approved chemicals are available at the store; they are labelled and stored away from the food preparation area and are in a dedicated location.", "score": 2 },
+      { "text": "Dilution charts are readily available at stores", "score": 2 },
+      { "text": "MSDS reports for all cleaning chemicals must be readily available.", "score": 2 },
+      { "text": "Spray guns must be readily available and labelled for identification", "score": 2 },
+      { "text": "Dust bins are kept closed and clean; identified as wet, dry & Surgical waste, segregated from food preparation and storage area. Adequate disposal of waste without overflow. Waste should not be kept in BOH and must be disposed of in a hygienic and controlled manner on a regular basis.", "score": 2 },
+      { "text": "Check the cleanliness condition of washroom and checklist", "score": 2 },
+      { "text": "Magic box inside BOH need to be clean and good condition", "score": 2 },
+      { "text": "Cleaning of utensils and equipment carried out in accordance with the cleaning schedule", "score": 2 },
+      { "text": "Is there any water stagnation in food zones", "score": 2 },
+      { "text": "Staffs are aware of usage of fire extinguishers in case of fire emergencies", "score": 2 },
+      { "text": "The team is aware and is adhering to the SOPs, Recipes, Shelf Life, Food Safety, Chemical dilution and its application, Personal Hygiene, Grooming Standards, and Pest Control.", "score": 2 },
+      { "text": "Receiving temperatures noted or not using a probe is checked. (Pictures in Terotam checklist filled by store)", "score": 2 },
+      { "text": "Vehicle intended for food transportation are kept clean and maintained in good repair & are maintain required temperature. Check and note the vehicle & food temperature", "score": 2 },
+      { "text": "FDU / Chillier / Deep Freezer temperatures monitoring records are updated in Terotam app need to be checked", "score": 2 },
+      { "text": "Measuring & monitoring devices are calibrated periodically along with records", "score": 2 },
+      { "text": "Food handlers have the necessary knowledge and skills & are trained to handle food safely. Check for training records.", "score": 2 },
+      { "text": "Personal hygiene verification record updated", "score": 2 },
+      { "text": "Appropriate documentation & records are available and retained for a period of one year, whichever is more.", "score": 2 },
+      { "text": "Pest control service/job card record updated", "score": 2 },
+      { "text": "Raw material arranged & used on FIFO (first in first out) and FEFO (First Expired First Out) basis", "score": 2 },
+      { "text": "Usage of colour coded microfiber as per the allocated area.", "score": 2 },
+      { "text": "Frozen products are thawed in the refrigerator per the defined SOP.", "score": 2 },
+      { "text": "Regularly inspect and replace the glue pads of the pesto flash and rodent box as needed.", "score": 2 },
+      { "text": "Smallware should be clean every 3 hrs.", "score": 2 },
+      { "text": "Is the food dial-in checklist updated?", "score": 2 },
+      { "text": "FSSAI & FSDB displayed in a prominent, customer-visible location and are within their validity period.", "score": 2 },
+      { "text": "Person in charge (PIC) holds a valid Food Safety Manager certification through an accredited program. (FOSTAC)", "score": 2 },
+      { "text": "The drainages are cleaned as per the SOP and have proper closed coverage.", "score": 2 },
+      { "text": "Check for proper segregation of veg and non-veg, cleanliness, and ensure there is no carbon deposition on moulds.", "score": 2 },
+      { "text": "Wet floor signs observed in use as needed.", "score": 2 },
+      { "text": "Step stools / Ladder are utilized to reach items on higher shelving and properly maintained.", "score": 2 },
+      { "text": "Are the food items displayed in the Food Display Unit (FDU) arranged on clean wooden boards lined with fresh butter paper, accompanied by clear name tags indicating the product name, calorie (Kcal), allergens, and vegetarian/non-vegetarian logo?", "score": 2 },
+      { "text": "Are all reusable condiments stored properly in separate containers and transferred to clean, usable containers when needed? Additionally, are items like butter chiplet prevented from being stored at normal temperature in reusable condiment containers?", "score": 2 },
+      { "text": "All the appropriate signages (hand wash, push/pull, etc.) are in place.", "score": 2 },
+      { "text": "All the digital/static menu boards were functional & updated.", "score": 2 }
+    ]
+  },
+  {
+    "category": "QA",
+    "checkpoints": [
+      { "text": "Potable water that is being is utilized as a product ingredient or in contact with food or food contact surface is meeting IS 10500 standards and tested semi-annually with records maintained (Hard Copy shall be available)", "score": 2 },
+      { "text": "Food material is tested either through internal laboratory or through an accredited lab. Check for records.", "score": 2 },
+      { "text": "The induction training programme and assessment for new employees are completed.", "score": 2 }
+    ]
+  },
+  {
+    "category": "Maintenance",
+    "checkpoints": []
+  },
+  {
+    "category": "HR",
+    "checkpoints": [
+      { "text": "Medical records for all the staffs including housekeeper available in store", "score": 2 },
+      { "text": "Annual medical examination & inoculation of food handlers against the enteric group of diseases as per recommended schedule of the vaccine is done. Check for records", "score": 2 }
+    ]
+  }
+]
