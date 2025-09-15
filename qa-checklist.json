@@ -1,6 +1,8 @@
 [
   {
     "category": "Zero Tolerance",
+    "objective": "Critical food safety and compliance requirements",
+    "maxScore": 4,
     "checkpoints": [
       { "text": "No expired food products in the café, and all food products are marked with clear date tags (MRD).", "score": 4, "zeroTolerance": true },
       { "text": "The product shall comply with the secondary shelf life for critical products like chicken, paneer, sauces, chilled, frozen, and composite products.", "score": 4, "zeroTolerance": true },
@@ -11,8 +13,63 @@
     ]
   },
   {
-    "category": "Store",
+    "category": "Maintenance",
+    "objective": "Ensure facility and equipment safety and functionality",
+    "maxScore": 2,
     "checkpoints": [
+      { "text": "All windows opening to the external environment including FOH & BOH & Customer facing, are kept closed and fitted with insect-protective mesh.", "score": 2 },
+      { "text": "There is no wall damage (paint peeling), floor damage, door damage, and false ceiling damage.", "score": 2 },
+      { "text": "There are no unsecured wires from electrical lines or equipment.", "score": 2 },
+      { "text": "All lighting above food and packaging areas has shatterproof protective covers, and all lights and electrical wiring above food stations are clean and in good condition.", "score": 2 },
+      { "text": "Fire extinguishers are in working condition and not expired.", "score": 2 },
+      { "text": "Absence of pest entry points - Damages in walls, Tap holes, Exhaust holes, Damages on false ceiling, open drain holes", "score": 2 },
+      { "text": "Pest o flash working: placed at a max height of 6 feet and should be away from food storage, preparation, and service areas.", "score": 2 },
+      { "text": "Equipment (RO, Coffee Machine, Freezer etc.) Maintenance file checked", "score": 2 },
+      { "text": "Check the records for RO water service records", "score": 2 },
+      { "text": "Plumbing and fixtures maintained in good repair.", "score": 2 },
+      { "text": "Freezer, FDU and Chilliers are in good working condition.", "score": 2 }
+    ]
+  },
+  {
+    "category": "HR",
+    "objective": "Ensure staff compliance and documentation",
+    "maxScore": 2,
+    "checkpoints": [
+      { "text": "Medical records for all the staffs including housekeeper available in store", "score": 2 },
+      { "text": "Annual medical examination & inoculation of food handlers against the enteric group of diseases as per recommended schedule of the vaccine is done. Check for records", "score": 2 }
+    ]
+  },
+  {
+    "category": "QA",
+    "objective": "Maintain quality standards and documentation",
+    "maxScore": 2,
+    "checkpoints": [
+      { "text": "Potable water that is being is utilized as a product ingredient or in contact with food or food contact surface is meeting IS 10500 standards and tested semi-annually with records maintained (Hard Copy shall be available)", "score": 2 },
+      { "text": "Food material is tested either through internal laboratory or through an accredited lab. Check for records.", "score": 2 },
+      { "text": "The induction training programme and assessment for new employees are completed.", "score": 2 }
+    ]
+  },
+  {
+    "category": "Store",
+    "objective": "Store operations and compliance",
+    "maxScore": 2,
+    "checkpoints": [
+      { "text": "The action plans for the previous audit non-conformities (NCs) were shared by the store team on time in the approved CAPA format, and all audit gaps have been closed.", "score": 2 },
+      { "text": "No Junk material, Wastage, Unused & Dump materials found in the surroundings of the store or inside the stores. And No objectionable item is found in the store (broken tools, utensils, equipment's not in use, etc.).", "score": 2 },
+      { "text": "The dishwasher and sink area are checked for cleanliness, Odor, covers, leakage, etc.", "score": 2 },
+      { "text": "Glass doors, Cupboards, shelves and area behind the equipment are clean, in good condition without any damage or chipping", "score": 2 },
+      { "text": "The area below the shelves and machinery is clean and free of food particles or other dust particles, paper waste, wrappers, etc.", "score": 2 },
+      { "text": "The tables and chairs for customers are in good condition and free of dust collection, stains, breakage, and shakiness.", "score": 2 },
+      { "text": "Food & packaging material are not stored on the floor.", "score": 2 },
+      { "text": "Food-contact materials and containers are cleaned and made of non-toxic, corrosion-free materials.", "score": 2 },
+      { "text": "Segregated materials (Knives, cutting boards) are colour coded as Veg/ Non-veg and clean", "score": 2 },
+      { "text": "Glasses - clean and arranged upside down in a clean rack", "score": 2 },
+      { "text": "All equipment's shall be cleaned (per the SOP) at the close of business to ensure freedom from growth of mould/ fungi and infestation", "score": 2 },
+      { "text": "Chiller / Deep Freezer temperatures to be maintained as per standard (Chiller 1-5ºC, Freezer -18ºC or below).", "score": 2 },
+      { "text": "Merry chef's inner body is checked for any food particles being charred or body being rusted, filters are checked for cleanliness should be without dust accumulation.", "score": 2 },
+      { "text": "Microwaves, grillers, coffee makers, and food warmers are all operational and cleanliness checked.", "score": 2 },
+      { "text": "Coffee machine and coffee grinder are operational, in good condition and cleaned.", "score": 2 },
+      { "text": "Shakers & Funnel are in good condition and without any food accumulation.", "score": 2 },
       { "text": "Portafilter is cleaned and is in good condition", "score": 2 },
       { "text": "All small wares (scoops, knives spatulas, tongs) must be in good working condition, without cracks or breakages, and are clean.", "score": 2 },
       { "text": "UTF Holder, Jackets, Pouches & UTF Filling nozzle are stored off the floor and no dust accumulation found.UTF Silver pouch rinsed with RO water before filling", "score": 2 },
@@ -28,9 +85,9 @@
       { "text": "Foods & Non-food materials stored separately.", "score": 2 },
       { "text": "The temperature of the FDU must be verified and must be within the range of 0-5 degrees Celsius.", "score": 2 },
       { "text": "All in-process food items held in containers and squeeze bottles are kept clean and have proper visible MRD tags in accordance with the shelf-life SOP.", "score": 2 },
-      { "text": "Food product segregation between veg,  non-veg & raw, cooked products must be maintained during all stages including storage and handling.", "score": 2 },
-      { "text": "Expired, Rejected, and Dumped items are clearly labelled as 'DO NOT USE' or 'EXPIRED PRODUCTS' and kept separate to avoid cross contamination.", "score": 2 },
-      { "text": "No carton boxes in the production area except milk boxes. Carton boxes should not be used for keeping other materials or tools ( Microfiber cloths, documents, cloths, damaged tools, etc.)", "score": 2 },
+      { "text": "Food product segregation between veg, non-veg & raw, cooked products must be maintained during all stages including storage and handling.", "score": 2 },
+      { "text": "Expired, Rejected, and Dumped items are clearly labelled as \"DO NOT USE\" or \"EXPIRED PRODUCTS\" and kept separate to avoid cross contamination.", "score": 2 },
+      { "text": "No carton boxes in the production area except milk boxes. Carton boxes should not be used for keeping other materials or tools (Microfiber cloths, documents, cloths, damaged tools, etc.)", "score": 2 },
       { "text": "Food waste and other wastages are removed daily from food handling areas to avoid accumulation.", "score": 2 },
       { "text": "Partner is well groomed (Cap, T-shirt, Apron, Name Badge, Black Trouser)", "score": 2 },
       { "text": "Personal Hygiene of the store staffs - with Proper Haircut, Nail trimmed, clean shave/trimmed and without skin infections, wounds, Fever / cold and unwanted jewellery.", "score": 2 },
@@ -87,25 +144,6 @@
       { "text": "Are all reusable condiments stored properly in separate containers and transferred to clean, usable containers when needed? Additionally, are items like butter chiplet prevented from being stored at normal temperature in reusable condiment containers?", "score": 2 },
       { "text": "All the appropriate signages (hand wash, push/pull, etc.) are in place.", "score": 2 },
       { "text": "All the digital/static menu boards were functional & updated.", "score": 2 }
-    ]
-  },
-  {
-    "category": "QA",
-    "checkpoints": [
-      { "text": "Potable water that is being is utilized as a product ingredient or in contact with food or food contact surface is meeting IS 10500 standards and tested semi-annually with records maintained (Hard Copy shall be available)", "score": 2 },
-      { "text": "Food material is tested either through internal laboratory or through an accredited lab. Check for records.", "score": 2 },
-      { "text": "The induction training programme and assessment for new employees are completed.", "score": 2 }
-    ]
-  },
-  {
-    "category": "Maintenance",
-    "checkpoints": []
-  },
-  {
-    "category": "HR",
-    "checkpoints": [
-      { "text": "Medical records for all the staffs including housekeeper available in store", "score": 2 },
-      { "text": "Annual medical examination & inoculation of food handlers against the enteric group of diseases as per recommended schedule of the vaccine is done. Check for records", "score": 2 }
     ]
   }
 ]
